@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Bypass Parental Controls</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #d4a76a;
+      margin: 0;
+      flex-direction: column;
+    }
+    .container {
+      text-align: center;
+      background: white;
+      padding: 20px;
+      border-radius: 25px;
+      box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      width: 300px;
+      margin-bottom: 20px;
+    }
+    .hidden {
+      display: none;
+    }
+    button {
+      display: block;
+      width: 200px;
+      margin: 10px auto;
+      padding: 12px;
+      border: none;
+      border-radius: 50px;
+      background: #c49a6c;
+      color: white;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    button:hover {
+      background: #b1895f;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #c49a6c;
+      border-radius: 25px;
+      width: 180px;
+      text-align: center;
+    }
+    .footer-box {
+      margin-top: 20px;
+      background: #c49a6c;
+      padding: 15px;
+      border-radius: 15px;
+      color: white;
+      font-size: 14px;
+      text-align: center;
+    }
+    .iframe-container {
+      display: none;
+      width: 100%;
+      height: 100vh;
+      background: white;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 1000;
+      border: none;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="container" id="login">
+    <h2>Enter Password</h2>
+    <input type="password" id="password" placeholder="Password">
+    <button onclick="checkPassword()">Submit</button>
+  </div>
+
+  <div class="container hidden" id="contentBypass">
+    <h2>Welcome Bro, Choose What Website To Enter!</h2>
+    <button onclick="window.open('https://youtube.com/', '_blank')">Youtube</button>
+    <button onclick="window.open('https://ucha.se/', '_blank')">Ucha.se</button>
+    <button onclick="window.open('https://chat.openai.com/', '_blank')">ChatGPT</button>
+    <button onclick="window.open('https://duckduckgo.com/', '_blank')">Google (STILL IN DEVELOPMENT)</button>
+    <button onclick="window.open('https://appetize.io/demo', '_blank')">Virtual Machine</button>
+  </div>
+
+  <div class="container" style="background: #fff3e0;">
+    <h3>Update Log</h3>
+    <p>🔁 Changed "Google" link to <strong>DuckDuckGo</strong> to bypass websites parents have blocked.</p>
+    <p>🔑 Password now shown as hint: <strong>GET THE PASSWORD FROM README.MD</strong></p>
+  </div>
+
+  <div class="footer-box">
+    Made By Potato (<a href="https://bit.ly/potatokingz" style="color: white;">bit.ly/potatokingz</a>)
+  </div>
+
+  <div class="iframe-container" id="virtualMachineContainer">
+    <iframe id="virtualMachine" sandbox="allow-scripts allow-forms" src=""></iframe>
+  </div>
+
+  <script>
+    document.addEventListener('contextmenu', function(e) {
+      e.preventDefault();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'F12' || (e.ctrlKey && (e.key === 'u' || e.key === 'I'))) {
+        e.preventDefault();
+      }
+    });
+
+    function checkPassword() {
+      const password = document.getElementById('password').value.trim();
+      if (password === 'GET THE PASSWORD FROM README.MD') {
+        document.getElementById('login').classList.add('hidden');
+        document.getElementById('contentBypass').classList.remove('hidden');
+      } else {
+        alert('Incorrect Password');
+      }
+    }
+  </script>
+</body>
+</html>
